@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 def run_chaos_scenarios(chaos_scenarios: list) -> list:
-    print(f"\n🎯 Target Runner Agent running {len(chaos_scenarios)} scenarios...")
+    print(f"\n[>] Target Runner Agent running {len(chaos_scenarios)} scenarios...")
 
     results = []
 
@@ -20,7 +20,7 @@ def run_chaos_scenarios(chaos_scenarios: list) -> list:
             'response': response,
             'timestamp': str(datetime.now())
         })
-        print(f"  ✅ Done")
+        print(f"  [+] Done")
 
-    print(f"  ✅ All {len(results)} scenarios complete")
+    print(f"  [+] All {len(results)} scenarios complete")
     return results

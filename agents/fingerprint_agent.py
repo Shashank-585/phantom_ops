@@ -6,7 +6,7 @@ import json
 
 
 def fingerprint_target(agent_description: str) -> dict:
-    print("\n🔍 Fingerprint Agent running...")
+    print("\n[*] Fingerprint Agent running...")
 
     system = """You are an expert AI system analyst. 
 You deeply analyze AI agents and predict exactly 
@@ -30,7 +30,7 @@ Return ONLY this JSON structure:
         end = result.rfind('}') + 1
         return json.loads(result[start:end])
     except Exception as e:
-        print(f"  ⚠️ JSON parse failed: {e}. Using fallback.")
+        print(f"  [!] JSON parse failed: {e}. Using fallback.")
         return {
             "domain": agent_description[:100],
             "assumptions": [

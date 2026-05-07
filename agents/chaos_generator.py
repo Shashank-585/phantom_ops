@@ -6,7 +6,7 @@ import json
 
 
 def generate_chaos(fingerprint: dict) -> list:
-    print("\n💥 Chaos Generator Agent running...")
+    print("\n[*] Chaos Generator Agent running...")
 
     system = """You are an adversarial scenario designer.
 You think like a real frustrated, confused, or malicious user.
@@ -34,10 +34,10 @@ Return ONLY the JSON array. No extra text."""
         start = result.find('[')
         end = result.rfind(']') + 1
         scenarios = json.loads(result[start:end])
-        print(f"  ✅ Generated {len(scenarios)} chaos scenarios")
+        print(f"  [+] Generated {len(scenarios)} chaos scenarios")
         return scenarios
     except Exception as e:
-        print(f"  ⚠️ JSON parse failed: {e}. Using fallback scenarios.")
+        print(f"  [!] JSON parse failed: {e}. Using fallback scenarios.")
         return [
             {"scenario_type": "incomplete_information",
              "input": "order??? where is it help me"},

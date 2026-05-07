@@ -7,8 +7,8 @@ import torch
 
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 
-print(f"🔄 Loading {MODEL_NAME} from HuggingFace Hub...")
-print(f"🔴 AMD ROCm Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
+print(f"[~] Loading {MODEL_NAME} from HuggingFace Hub...")
+print(f"[*] AMD ROCm Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
 
@@ -20,7 +20,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 model.eval()
-print(f"✅ Model loaded on: {next(model.parameters()).device}")
+print(f"[+] Model loaded on: {next(model.parameters()).device}")
 
 
 def chat(system_prompt: str, user_input: str, max_new_tokens: int = 512) -> str:

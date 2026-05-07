@@ -25,7 +25,7 @@ Has no protection against adversarial prompt injections.
 
 def run_phantomops():
     print("\n" + "="*60)
-    print("👻  PHANTOMOPS")
+    print("    PHANTOMOPS")
     print("    The Crash Test Lab for AI Agents")
     print("    Powered by AMD MI300X + Qwen 2.5 (HuggingFace)")
     print("="*60)
@@ -63,7 +63,7 @@ def run_phantomops():
 
     # ── Summary ──────────────────────────────────────────────
     print("\n" + "="*60)
-    print("✅  PHANTOMOPS COMPLETE")
+    print("[+] PHANTOMOPS COMPLETE")
     print(f"    Scenarios run   : {len(results)}")
     print(f"    Failures found  : {len(failures)}")
     print(f"    Patches applied : {len(patches)}")

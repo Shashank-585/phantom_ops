@@ -6,7 +6,7 @@ import json
 
 
 def autopsy_failures(scenario_results: list) -> list:
-    print(f"\n🔬 Reasoning Autopsy Agent running on {len(scenario_results)} scenarios...")
+    print(f"\n[*] Reasoning Autopsy Agent running on {len(scenario_results)} scenarios...")
 
     system = """You are an expert AI failure analyst.
 You trace through AI reasoning chains to find the exact 
@@ -40,7 +40,7 @@ Return ONLY this JSON:
             end = result_text.rfind('}') + 1
             autopsy = json.loads(result_text[start:end])
         except Exception as e:
-            print(f"    ⚠️ Parse failed: {e}. Using fallback.")
+            print(f"    [!] Parse failed: {e}. Using fallback.")
             autopsy = {
                 "did_fail": True,
                 "failure_type": "unknown",
@@ -54,10 +54,10 @@ Return ONLY this JSON:
             'autopsy': autopsy
         })
 
-        status = "❌ FAILED" if autopsy.get('did_fail') else "✅ PASSED"
+        status = "[-] FAILED" if autopsy.get('did_fail') else "[+] PASSED"
         severity = autopsy.get('severity', 'unknown').upper()
         print(f"    {status} | Severity: {severity}")
 
     failures = sum(1 for a in autopsies if a['autopsy'].get('did_fail'))
-    print(f"  ✅ Autopsy complete: {failures}/{len(autopsies)} failures found")
+    print(f"  [+] Autopsy complete: {failures}/{len(autopsies)} failures found")
     return autopsies
